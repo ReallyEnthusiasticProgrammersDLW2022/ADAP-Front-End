@@ -37,12 +37,13 @@ const CBDPage = ({ route, navigation }) => {
         let idx=1
         for (let i of imgDetails) {
             rendered.push(
-                <View key={i.id} className="my-0 flex-row">
+                <View key={i.id} className="flex-row">
                     <TouchableWithoutFeedback onPress={() => navigation.navigate('ViewImagePage',  {id: i.id})}>
-                        <View className="px-4 py-2 m-2 bg-white rounded-lg basis-2/3">
+                        <View className="pl-4 pr-8 py-2 m-2 bg-white rounded-lg basis-2/3">
                             <View>
                                 <Text className="text-xl font-bold my-1">{"Image " + idx}</Text>
-                                <Text className="text-l">Coordinates: {i.coord}</Text>
+                                <Text className="text-l">Longitude: {i.coord.split(',')[0]}</Text>
+                                <Text className="text-l">Latitude: {i.coord.split(',')[1]}</Text>
                                 <Text className="text-l">Walk Score: {i.walk_score}</Text>
                                 <Text className="text-l mb-1">Bike Score: {i.bike_score}</Text>
                             </View>
@@ -51,7 +52,7 @@ const CBDPage = ({ route, navigation }) => {
                     <View className="px-4 py-2 mx-1 my-2 bg-white rounded-lg basis-1/4">
                         <View>
                             <Text className="text-xl font-bold my-1">Score</Text>
-                            <Text className="text-4xl">{isCycleScore ? Math.round(i.bike_score) : Math.round(i.walk_score)}</Text>
+                            <Text className="text-3xl">{isCycleScore ? Math.round(i.bike_score) : Math.round(i.walk_score)}</Text>
                         </View>
                     </View>
                 </View>
