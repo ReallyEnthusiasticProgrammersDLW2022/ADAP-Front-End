@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableWithoutFeedback, Image, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableWithoutFeedback, Image, Button, TouchableOpacity, Keyboard } from 'react-native';
 import { useEffect, useState } from 'react';
 import Navbar from '../components/navbar'
 import axios from 'axios';
@@ -65,7 +65,7 @@ const PreviewPage = ({ route, navigation }) => {
         formData.append('file', { uri: localUri, name: filename, type });
         formData.append('coordinates', coord);
         console.log("Top")
-        let res = await axios.post('https://main-backend-really-enthusiastic-programmers-dlw2022.endpoint.ainize.ai/upload', formData, {
+        let res = await axios.post('https://main-adap-back-end-really-enthusiastic-programmers-dlw2022.endpoint.ainize.ai/upload', formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
         })
         let { bikescore, walkscore, image } = res.data
@@ -103,12 +103,15 @@ const PreviewPage = ({ route, navigation }) => {
                     <TextInput
                         className="w-44 h-12 py-2 px-4 self-center text-center rounded-2xl bg-white"
                         onChangeText={text => setCoord(text)}
-                        multiline
+                        returnKeyType="done"
+                        multiline={true}
+                        blurOnSubmit={true}
+                        onSubmitEditing={() => { Keyboard.dismiss() }}
                         clearTextOnFocus={true}
                         value={coord}
                     />
                     <TouchableOpacity className="ml-1 rounded-xl w-12 items-center justify-center bg-red-500 active:bg-red-600" activeOpacity={1.0} onPress={onAutofillClick}>
-                        <EnIcon name="location" size={30} color="#D3D3D3"/>
+                        <EnIcon name="location" size={30} color="#D3D3D3" />
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity className="mt-8 rounded-3xl justify-center bg-red-500 active:bg-red-600" activeOpacity={1.0} onPress={postImgForCalc}>

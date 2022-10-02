@@ -26,7 +26,8 @@ const ViewImagePage = ({ route }) => {
             <Image className="h-56 w-full rounded-3xl" source={{ uri: (isSegmentedImage ? res[1] : res[0]) }} />
             <View className="px-4 py-2 m-2 bg-white rounded-lg">
                 {/* <Text className="text-xl font-bold my-1">{res[2].location}</Text> */}
-                <Text className="text-lg">Coordinates: {res[2].coord}</Text>
+                <Text className="text-lg">Longitude: {res[2].coord.split(',')[0]}</Text>
+                <Text className="text-lg">Latitude: {res[2].coord.split(',')[1]}</Text>
                 <Text className="text-lg">Walk Score: {Math.round(res[2].walk_score)}</Text>
                 <Text className="text-lg">Bike Score: {Math.round(res[2].bike_score)}</Text>
             </View>
