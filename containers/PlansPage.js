@@ -18,7 +18,7 @@ const ModalNewPlan = () => {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text className="text-xl text-center font-bold my-2">New Plan Folder</Text>
             <TextInput
-                className="h-10 w-32 rounded-2xl bg-white"
+                className="h-10 w-32 text-center rounded-2xl bg-white"
                 onChangeText={text => setNewPlanName(text)}
                 value={newPlanName}
             />
@@ -27,7 +27,12 @@ const ModalNewPlan = () => {
                 addNewPlan({ name: newPlanName })
                 navigation.goBack()
             }}
-                title="Dismiss"
+                title="Done"
+            />
+            <Button onPress={() => {
+                navigation.goBack()
+            }}
+                title="Cancel"
             />
         </View>
     )
