@@ -29,7 +29,6 @@ const CBDPage = ({ route, navigation }) => {
     }
 
     const renderMap = () => {
-        console.log(imgDetails)
         return mapViewRender(imgDetails, isCycleScore)
     }
 

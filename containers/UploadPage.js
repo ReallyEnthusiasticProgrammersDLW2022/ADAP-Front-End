@@ -6,8 +6,7 @@ import axios from 'axios';
 
 const UploadPage = ({ route, navigation }) => {
     const {plan_name} = route.params;
-    console.log("upload")
-    console.log(plan_name)
+
     const [pickedImagePath, setPickedImagePath] = useState('');
 
     const showImagePicker = async () => {
@@ -19,11 +18,9 @@ const UploadPage = ({ route, navigation }) => {
         }
 
         const result = await ImagePicker.launchImageLibraryAsync();
-        console.log(result);
 
         if (!result.cancelled) {
             setPickedImagePath(result.uri);
-            console.log(result.uri);
         }
     }
 
@@ -36,11 +33,9 @@ const UploadPage = ({ route, navigation }) => {
         }
 
         const result = await ImagePicker.launchCameraAsync();
-        console.log(result);
 
         if (!result.cancelled) {
             setPickedImagePath(result.uri);
-            console.log(result.uri);
         }
     }
 

@@ -18,7 +18,6 @@ const ViewImagePage = ({ route }) => {
     }, [])
 
     useEffect(() => {
-        console.log(res)
         if (res != null) render()
     }, [res])
 

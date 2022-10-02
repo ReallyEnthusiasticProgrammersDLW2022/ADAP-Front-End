@@ -27,16 +27,13 @@ async function read() {
         .then(snapshot => {
             snapshot.docs.map(doc => {
                 documents.push(doc.data());
-                console.log(doc.data());
             });
 
         });
-    console.log(documents)
 
     // get image from bucket 
     const bucket = admin.storage().bucket('gs://dlw2022-7a082.appspot.com');
     await bucket.file('image1.jpg').download({ destination: './temp.png' });
-    console.log('Image downloaded locally to', './temp.png');
     // delete local file to free disk space
     fs.unlinkSync('./temp.png');
 

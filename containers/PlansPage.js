@@ -46,12 +46,10 @@ const PlansScreen = () => {
 
     useEffect(() => {
         createPlans()
-        console.log("STOP1")
     },[focus])
 
     useEffect(() => {
         renderPlans()
-        console.log("STOP2")
     }, [])
   
     const createPlans = async () => {

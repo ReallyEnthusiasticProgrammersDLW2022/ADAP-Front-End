@@ -121,7 +121,6 @@ const setImgData = async (det, file, base64String, type) => {
     const storageRef_seg = ref(storage, `images/${det.location_seg}`);
 
     await uploadBytes(storageRef_seg, blob, metadata);
-    console.log(documents[0])
     return documents[0].id
 }
 
