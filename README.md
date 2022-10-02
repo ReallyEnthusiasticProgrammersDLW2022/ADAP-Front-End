@@ -20,4 +20,4 @@ Server is hosted with flask and it holds our data processing models. Our data pr
 Firebase Database is used for the storage of uploaded images, processed images as well as the generated scores.
 
 ## Application Demonstration
-https://user-images.githubusercontent.com/77315991/193447824-82c7f2bf-047c-4e90-a7b7-4623c15d1d0c.mp4
+Uploading ADAP_demo.mp4…
